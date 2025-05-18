@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title id="title">레시피 결과</title>
+  <link href="style.css" rel="stylesheet" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+      background: #fff;
+      color: #333;
+    }
+    h1 {
+      margin-bottom: 10px;
+      font-size: 1.8em;
+    }
+    h2 {
+      margin-top: 25px;
+      font-size: 1.2em;
+      color: #444;
+    }
+    .recipe-img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      margin: 20px auto;
+      display: block;
+      border-radius: 12px;
+    }
+    .recipe-text {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
+      line-height: 1.7;
+    }
+    .recipe-text ul {
+      padding-left: 20px;
+      list-style: disc;
+    }
+    .recipe-text li {
+      margin-bottom: 8px;
+    }
+    .reference {
+      font-size: 0.85em;
+      font-style: italic;
+      margin-top: 30px;
+      text-align: left;
+      color: #555;
+    }
+    .reference a {
+      color: #2980b9;
+      text-decoration: underline;
+    }
+    .back-btn {
+      margin: 30px auto 0;
+      padding: 10px 25px;
+      font-size: 1.1em;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      display: block;
+      text-align: center;
+      transition: background-color 0.2s;
+    }
+    .back-btn:hover {
+      background-color: #2980b9;
+    }
+    footer {
+      margin-top: 50px;
+      font-size: 0.9em;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="title">레시피 결과</h1>
+  <img id="recipe-img" class="recipe-img" src="" alt="요리 이미지" />
+
+  <div id="recipe-container" class="recipe-text"></div>
+
+  <button class="back-btn" onclick="window.history.back()">뒤로가기</button>
+
+  <footer>한양대 인터칼리지학과 G19</footer>
+
+  <script>
+    const recipes = {
+      "우동면": {
+        name: "카레 우동 (Curry Udon Noodles)",
+        image: "food_picture/curry_udon.jpg",
+        steps_kr: [
+          "1. 남은 카레에 물이나 육수를 조금 넣고 끓입니다.",
+          "2. 삶은 우동면을 넣습니다.",
+          "3. 대파나 삶은 계란을 곁들여 마무리합니다."
+        ],
+        steps_en: [
+          "1. Heat leftover curry with a little water or broth.",
+          "2. Add boiled udon noodles.",
+          "3. Garnish with green onions or a boiled egg."
+        ],
+        reference: "https://www.wandercooks.com/curry-udon/"
+      },
+      "감자": {
+        name: "카레 고로케 (Curry Croquette)",
+        image: "food_picture/curry_potato.jpg",
+        steps_kr: [
+          "1. 남은 카레와 으깬 감자를 섞어 식힙니다.",
+          "2. 동그랗게 빚고 밀가루-계란물-빵가루 순으로 입힙니다.",
+          "3. 바삭하게 튀겨 고소한 고로케를 완성합니다."
+        ],
+        steps_en: [
+          "1. Mix leftover curry with mashed potato and chill.",
+          "2. Form into balls and coat with flour, egg, and breadcrumbs.",
+          "3. Deep-fry until golden and crispy."
+        ],
+        reference: "https://tiffycooks.com/curry-croquettes-crispy-and-cheesy/"
+      },
+      "밥": {
+        name: "카레 그라탱 (Curry Gratin)",
+        image: "food_picture/curry_rice.jpg",
+        steps_kr: [
+          "1. 익힌 밥 위에 남은 카레를 얹습니다.",
+          "2. 치즈를 듬뿍 뿌립니다.",
+          "3. 오븐이나 에어프라이어에서 치즈가 노릇해질 때까지 구워줍니다."
+        ],
+        steps_en: [
+          "1. Layer leftover curry over cooked rice.",
+          "2. Top generously with shredded cheese.",
+          "3. Bake until golden and bubbly."
+        ],
+        reference: "https://greatcurryrecipes.net/2016/03/03/cauliflower-gratin/"
+      },
+      "두부": {
+        name: "두부 카레 (Tofu Curry)",
+        image: "food_picture/curry_tofu.jpg",
+        steps_kr: [
+          "1. 남은 두부를 향신료와 함께 볶아 바삭하게 만든 뒤 꺼냅니다.",
+          "2. 같은 팬에 양파를 볶고 향신료를 더해 깊은 맛을 냅니다.",
+          "3. 채소, 물 또는 육수를 넣고 끓인 후 두부와 완두콩을 넣어 마무리합니다."
+        ],
+        steps_en: [
+          "1. Pan-fry leftover tofu with spices until crispy, then remove.",
+          "2. Sauté onions in the same pan and add more spices.",
+          "3. Add vegetables and broth, simmer, then stir in tofu and peas."
+        ],
+        reference: "https://www.wellplated.com/tofu-curry/"
+      },
+      "닭고기": {
+        name: "치킨 미트볼 카레 (Chicken Meatball Curry)",
+        image: "food_picture/curry_chicken.jpg",
+        steps_kr: [
+          "1. 남은 닭고기에 달걀, 빵가루, 마늘, 생강 등을 넣고 반죽하여 냉장 숙성합니다.",
+          "2. 미트볼로 빚어 팬에 고루 익도록 굽습니다.",
+          "3. 같은 팬에 향신료와 카레 재료를 볶아 소스를 만들고 미트볼과 함께 곁들입니다."
+        ],
+        steps_en: [
+          "1. Mix leftover chicken with egg, breadcrumbs, garlic, and seasonings, then chill.",
+          "2. Form into meatballs and pan-fry until evenly browned.",
+          "3. In the same pan, cook curry sauce and serve over rice with the meatballs."
+        ],
+        reference: "https://www.kitchensanctuary.com/chicken-meatball-curry/"
+      }
+    };
+
+    const selected = localStorage.getItem("selectedIngredient");
+    const recipe = recipes[selected];
+
+    if (recipe) {
+      document.getElementById("title").textContent = recipe.name;
+      const img = document.getElementById("recipe-img");
+      img.src = recipe.image;
+      img.alt = recipe.name;
+
+      const container = document.getElementById("recipe-container");
+      const stepsKr = recipe.steps_kr.map(s => `<li>${s}</li>`).join("");
+      const stepsEn = recipe.steps_en.map(s => `<li>${s}</li>`).join("");
+
+      container.innerHTML = `
+        <h2>레시피 설명 (한국어)</h2>
+        <ul>${stepsKr}</ul>
+        <h2>Recipe Instructions (English)</h2>
+        <ul>${stepsEn}</ul>
+        <div class="reference">
+          🔗 Reference: <a href="${recipe.reference}" target="_blank">${recipe.reference}</a>
+        </div>
+      `;
+    } else {
+      document.getElementById("recipe-container").innerHTML = "<p>선택된 재료가 없습니다.</p>";
+    }
+  </script>
+</body>
+</html>
