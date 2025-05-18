@@ -3,114 +3,120 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>FOODWASTE - 카레</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
-      margin: 0;
-      padding: 20px;
-      text-align: center;
-    }
-    h1 {
-      color: #2c3e50;
-    }
-    p.subtitle {
-      font-size: 1.1em;
-      margin-bottom: 20px;
-    }
-    .ingredient-container {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-    .ingredient {
-      width: 120px;
-      cursor: pointer;
-      border: 2px solid #ddd;
-      border-radius: 10px;
-      padding: 10px;
-      background-color: white;
-      transition: 0.2s;
-    }
-    .ingredient.selected {
-      border-color: #3498db;
-      background-color: #eaf6ff;
-    }
-    .ingredient img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
-    .ingredient span {
-      display: block;
-      margin-top: 8px;
-      font-weight: bold;
-    }
-    .next-btn {
-      margin-top: 30px;
-      padding: 10px 25px;
-      font-size: 1.1em;
-      background-color: #2ecc71;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      display: none;
-    }
-    footer {
-      margin-top: 50px;
-      font-size: 0.9em;
-      color: #777;
-    }
-  </style>
+  <title>레시피 결과</title>
+  <link href="style.css" rel="stylesheet" />
 </head>
 <body>
-  <h1>FOODWASTE - 카레</h1>
-  <p class="subtitle">냉장고 속 남은 재료를 골라 새로운 카레 요리로 바꿔보세요! (하나만)</p>
+  <h1 id="title">레시피 결과</h1>
+  <img id="recipe-img" class="recipe-img" src="" alt="요리 이미지" style="display: none;" />
 
-  <div class="ingredient-container">
-    <div class="ingredient" data-name="우동면" onclick="selectIngredient(this)">
-      <img src="food_picture/udon.jpg" alt="우동">
-      <span>우동</span>
-    </div>
-    <div class="ingredient" data-name="감자" onclick="selectIngredient(this)">
-      <img src="food_picture/potato.jpg" alt="감자">
-      <span>감자</span>
-    </div>
-    <div class="ingredient" data-name="밥" onclick="selectIngredient(this)">
-      <img src="food_picture/rice.jpg" alt="치즈">
-      <span>치즈</span>
-    </div>
-    <div class="ingredient" data-name="두부" onclick="selectIngredient(this)">
-      <img src="food_picture/tofu.jpg" alt="두부">
-      <span>두부</span>
-    </div>
-    <div class="ingredient" data-name="닭고기" onclick="selectIngredient(this)">
-      <img src="food_picture/chicken.jpg" alt="미트볼">
-      <span>미트볼</span>
-    </div>
-  </div>
-
-  <button class="next-btn" onclick="goToNextPage()">다음으로</button>
+  <div id="recipe-container" class="recipe-text"></div>
 
   <footer>한양대 인터칼리지학과 G19</footer>
 
   <script>
-    let selectedIngredient = "";
+    const recipes = {
+      "우동면": {
+        name: "카레 우동 (Curry Udon Noodles)",
+        image: "food_picture/curry_udon.jpg",
+        steps_kr: [
+          "1. 남은 카레에 물이나 육수를 조금 넣고 끓입니다.",
+          "2. 삶은 우동면을 넣습니다.",
+          "3. 대파나 계란을 곁들여 완성합니다."
+        ],
+        steps_en: [
+          "1. Heat curry with a little water or broth.",
+          "2. Add boiled udon noodles.",
+          "3. Garnish with green onions or boiled egg."
+        ],
+        reference: "https://www.wandercooks.com/curry-udon/"
+      },
+      "감자": {
+        name: "카레 고로케 (Curry Croquette)",
+        image: "food_picture/curry_croquette.jpg",
+        steps_kr: [
+          "1. 카레와 으깬 감자를 섞어 식힙니다.",
+          "2. 동그랗게 빚고 밀가루-계란-빵가루 순으로 입힙니다.",
+          "3. 바삭하게 튀깁니다."
+        ],
+        steps_en: [
+          "1. Mix curry with mashed potato, chill.",
+          "2. Form into balls, coat with flour, egg, breadcrumbs.",
+          "3. Deep-fry until golden."
+        ],
+        reference: "https://tiffycooks.com/curry-croquettes-crispy-and-cheesy/"
+      },
+      "밥": {
+        name: "카레 그라탱 (Curry Gratin)",
+        image: "food_picture/curry_gratin.jpg",
+        steps_kr: [
+          "1. 익힌 파스타나 밥 위에 카레를 붓습니다.",
+          "2. 치즈를 넉넉히 올립니다.",
+          "3. 오븐 또는 에어프라이어에 구워 마무리합니다."
+        ],
+        steps_en: [
+          "1. Layer curry over cooked pasta or rice.",
+          "2. Top with shredded cheese.",
+          "3. Bake until golden and bubbly."
+        ],
+        reference: "https://greatcurryrecipes.net/2016/03/03/cauliflower-gratin/"
+      },
+      "두부": {
+        name: "두부 카레 (Tofu Curry)",
+        image: "food_picture/curry_tofu.jpg",
+        steps_kr: [
+          "1. 두부를 향신료와 함께 바삭하게 볶은 뒤 접시에 덜어냅니다.",
+          "2. 팬에 양파를 볶다가 향신료를 추가해 향을 낸 후, 채소와 재료를 넣고 끓입니다.",
+          "3. 볶아둔 두부와 완두콩을 넣고 마무리합니다."
+        ],
+        steps_en: [
+          "1. Saute tofu with spices until crispy and set aside.",
+          "2. Cook onions, add spices, then vegetables and simmer.",
+          "3. Add tofu and peas, stir and finish."
+        ],
+        reference: "https://www.wellplated.com/tofu-curry/"
+      },
+      "닭고기": {
+        name: "치킨 미트볼 카레 (Chicken Meatball Curry)",
+        image: "food_picture/curry_meatball.jpg",
+        steps_kr: [
+          "1. 다진 닭고기와 재료를 섞어 미트볼을 만들어 굽습니다.",
+          "2. 같은 팬에 카레 소스를 만들어 미트볼과 함께 끓입니다.",
+          "3. 밥 위에 올려 마무리합니다."
+        ],
+        steps_en: [
+          "1. Mix minced chicken with ingredients and form meatballs, then grill.",
+          "2. Make curry sauce in the same pan, simmer with meatballs.",
+          "3. Serve over rice."
+        ],
+        reference: "https://www.kitchensanctuary.com/chicken-meatball-curry/"
+      }
+    };
 
-    function selectIngredient(el) {
-      document.querySelectorAll('.ingredient').forEach(i => i.classList.remove('selected'));
-      el.classList.add('selected');
-      selectedIngredient = el.dataset.name;
-      document.querySelector('.next-btn').style.display = 'inline-block';
-    }
+    const selected = localStorage.getItem("selectedIngredient");
+    const recipe = recipes[selected];
 
-    function goToNextPage() {
-      if (!selectedIngredient) return;
-      localStorage.setItem('selectedIngredient', selectedIngredient);
-      window.location.href = 'next_curry.html';
+    if (recipe) {
+      document.getElementById("title").textContent = recipe.name;
+      const img = document.getElementById("recipe-img");
+      img.src = recipe.image;
+      img.style.display = "block";
+
+      const container = document.getElementById("recipe-container");
+      const stepsKr = recipe.steps_kr.map(step => `<li>${step}</li>`).join("");
+      const stepsEn = recipe.steps_en.map(step => `<li>${step}</li>`).join("");
+
+      container.innerHTML = `
+        <h2>레시피 설명 (한국어)</h2>
+        <ul>${stepsKr}</ul>
+        <h2>Recipe Instructions (English)</h2>
+        <ul>${stepsEn}</ul>
+        <p style="margin-top: 20px; font-size: 0.9em; font-style: italic;">
+          Reference: <a href="${recipe.reference}" target="_blank">${recipe.reference}</a>
+        </p>
+      `;
+    } else {
+      document.getElementById("recipe-container").innerHTML = "<p>선택된 재료가 없습니다.</p>";
     }
   </script>
 </body>
