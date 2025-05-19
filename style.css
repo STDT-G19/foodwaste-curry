@@ -1,24 +1,29 @@
-/* 기본 설정 */
+/* 전체 페이지 기본 설정 */
 body {
   font-family: 'Pretendard', 'Arial', sans-serif;
   background-color: #f5f5f5;
   margin: 0;
-  padding: 0 20px; /* 양쪽 여백 추가 */
+  padding: 0 20px; /* 텍스트 양쪽 여백 */
   color: #333;
   box-sizing: border-box;
 }
 
-/* 헤더 */
-header {
-  background-color: #ffffff;
-  padding: 20px;
+/* 제목, 부제목 중앙 정렬 */
+h1,
+.subtitle {
   text-align: center;
-  font-size: 2em;
-  font-weight: bold;
-  border-bottom: 1px solid #ddd;
+  margin-top: 40px;
+  font-weight: 700;
+  color: #2c3e50;
 }
 
-/* 재료 컨테이너 */
+.subtitle {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #666;
+}
+
+/* 재료 선택 컨테이너 */
 .ingredient-container {
   display: flex;
   flex-wrap: wrap;
@@ -50,7 +55,7 @@ header {
   box-shadow: 0 0 10px rgba(255, 152, 0, 0.5);
 }
 
-/* 이미지 반응형 */
+/* 이미지 - 반응형 + 자동 높이 */
 .ingredient img {
   width: 100%;
   height: auto;
@@ -58,7 +63,7 @@ header {
   object-fit: cover;
 }
 
-/* 재료 이름 */
+/* 재료 이름 텍스트 */
 .ingredient span {
   display: block;
   margin-top: 10px;
@@ -66,7 +71,7 @@ header {
   font-weight: 500;
 }
 
-/* 다음 버튼 - 중앙 정렬 */
+/* 다음으로 버튼 중앙 정렬 */
 .next-btn {
   display: none;
   margin: 40px auto;
@@ -84,12 +89,81 @@ header {
   background-color: #e68900;
 }
 
+/* 레시피 결과 페이지 전용 컨테이너 */
+.recipe-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 레시피 이미지 - 반응형 + 최대 너비 제한 */
+.recipe-img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 12px;
+  margin: 20px auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* 구분 레이블 (한국어 / English) */
+.section-label {
+  font-size: 1.2em;
+  margin-top: 30px;
+  color: #e67e22;
+  border-bottom: 2px solid #f6c190;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* 레시피 텍스트 영역 */
+.recipe-text {
+  text-align: left;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.recipe-text ul {
+  padding-left: 20px;
+  line-height: 1.6;
+}
+
+/* 출처 스타일 */
+.reference {
+  font-size: 0.9em;
+  font-style: italic;
+  color: #777;
+  margin-top: 20px;
+}
+
+/* 뒤로가기 버튼 */
+.back-btn {
+  display: block;
+  margin: 40px auto 0;
+  padding: 12px 24px;
+  font-size: 1rem;
+  background-color: #d35400;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.back-btn:hover {
+  background-color: #e67e22;
+}
+
 /* 푸터 */
 footer {
   margin-top: 50px;
   text-align: center;
   font-size: 0.9em;
   color: #777;
-  padding: 20px 0;
+  padding-bottom: 20px;
   border-top: 1px solid #ddd;
 }
