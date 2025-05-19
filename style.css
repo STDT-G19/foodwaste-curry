@@ -1,114 +1,93 @@
-/* 기본 스타일 */
+/* 기본 설정 */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
+  font-family: 'Pretendard', 'Arial', sans-serif;
+  background-color: #f5f5f5;
   margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* 헤더 스타일 */
+header {
+  background-color: #ffffff;
   padding: 20px;
   text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+  border-bottom: 1px solid #ddd;
 }
 
-h1 {
-  color: #2c3e50;
-  font-size: 1.8em;
-}
-
-.subtitle {
-  font-size: 1rem;
-  color: #555;
-  margin-bottom: 20px;
-}
-
-/* 첫 페이지: 재료 선택 */
+/* 재료 컨테이너 */
 .ingredient-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 30px;
-  margin-top: 40px;
+  margin: 40px auto;
+  max-width: 1000px;
+  gap: 20px;
 }
 
+/* 개별 재료 카드 */
 .ingredient {
-  width: 150px;
-  cursor: pointer;
-  transition: transform 0.2s;
+  background-color: #ffffff;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  width: 180px;
   text-align: center;
+  padding: 15px;
+  cursor: pointer;
+  transition: transform 0.2s, border-color 0.2s;
 }
 
+.ingredient:hover {
+  transform: translateY(-5px);
+  border-color: #ff9800;
+}
+
+.ingredient.selected {
+  border-color: #ff9800;
+  box-shadow: 0 0 10px rgba(255, 152, 0, 0.5);
+}
+
+/* 재료 이미지 */
 .ingredient img {
   width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 12px;
-  border: 2px solid transparent;
+  height: auto;
+  border-radius: 8px;
 }
 
+/* 재료 이름 */
 .ingredient span {
   display: block;
-  margin-top: 8px;
-  font-size: 1rem;
+  margin-top: 10px;
+  font-size: 1.1em;
+  font-weight: 500;
 }
 
-.ingredient.selected img {
-  border: 2px solid orange;
-  transform: scale(1.05);
-}
-
-/* 버튼 */
-.next-btn, .back-btn {
-  margin-top: 40px;
-  padding: 10px 20px;
-  font-size: 1rem;
+/* 다음 버튼 */
+.next-btn {
+  display: none;
+  margin: 30px auto;
+  padding: 12px 24px;
+  font-size: 1em;
+  background-color: #ff9800;
+  color: white;
   border: none;
   border-radius: 8px;
-  background-color: orange;
-  color: white;
   cursor: pointer;
-  display: none; /* next-btn은 기본 숨김 */
+  transition: background-color 0.2s;
 }
 
-.back-btn {
-  display: inline-block; /* back-btn은 항상 보임 */
-  background-color: #3498db;
+.next-btn:hover {
+  background-color: #e68900;
 }
 
-/* 레시피 결과 페이지 */
-.recipe-img {
-  width: 200px;
-  height: auto;
-  border-radius: 10px;
-  margin: 20px auto;
-  display: block;
-}
-
-.recipe-text {
-  max-width: 700px;
-  margin: 0 auto;
-  text-align: left;
-}
-
-.recipe-text h2 {
-  margin-top: 30px;
-  color: #34495e;
-  font-size: 1.2em;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 5px;
-}
-
-.recipe-text ul {
-  padding-left: 20px;
-  line-height: 1.6;
-}
-
-.recipe-text p.reference {
-  margin-top: 20px;
-  font-size: 0.9em;
-  font-style: italic;
-  color: #555;
-}
-
-/* 푸터 */
+/* 푸터 스타일 */
 footer {
   margin-top: 50px;
+  text-align: center;
   font-size: 0.9em;
   color: #777;
+  padding: 20px 0;
+  border-top: 1px solid #ddd;
 }
