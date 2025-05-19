@@ -33,7 +33,7 @@
     </div>
   </div>
 
-  <!-- 다음으로 버튼 중앙 정렬됨 -->
+  <!-- 항상 보이되, 선택 전까지는 비활성화 상태 -->
   <button class="next-btn" onclick="goToNextPage()">다음으로</button>
 
   <footer>한양대 인터칼리지학과 G19</footer>
@@ -45,7 +45,9 @@
       document.querySelectorAll('.ingredient').forEach(i => i.classList.remove('selected'));
       el.classList.add('selected');
       selectedIngredient = el.dataset.name;
-      document.querySelector('.next-btn').style.display = 'inline-block';
+
+      // 버튼을 활성화
+      document.querySelector('.next-btn').classList.add('active');
     }
 
     function goToNextPage() {
