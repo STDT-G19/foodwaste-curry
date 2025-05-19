@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
@@ -19,38 +19,99 @@
   <script>
     const recipes = {
       "우동면": {
-        name: "카레 우동",
+        name: "카레 우동 (Curry Udon Noodles)",
         image: "food_picture/curry_udon.jpg",
-        steps_kr: ["1. 남은 카레에 물이나 육수를 조금 넣고 끓입니다.","2. 삶은 우동면을 넣습니다.","3. 대파나 계란을 곁들여 완성합니다."],
-        steps_en: ["1. Heat curry with a little water or broth.","2. Add boiled udon noodles.","3. Garnish with green onions or boiled egg."],
+        topic: "남은 카레를 활용한 따뜻하고 간편한 한 그릇 요리",
+        ingredients_kr: "남은 카레, 물 또는 육수, 삶은 우동면, 대파, 삶은 계란",
+        ingredients_en: "Leftover curry, Water or broth, Boiled udon noodles, Green onions, Boiled egg",
+        steps_kr: [
+          "1. 남은 카레에 물이나 육수를 조금 넣고 끓입니다.",
+          "2. 삶은 우동면을 넣습니다.",
+          "3. 대파나 계란을 곁들여 완성합니다."
+        ],
+        steps_en: [
+          "1. Heat curry with a little water or broth.",
+          "2. Add boiled udon noodles.",
+          "3. Garnish with green onions or boiled egg."
+        ],
         reference: "https://www.wandercooks.com/curry-udon/"
       },
       "감자": {
-        name: "카레 고로케",
-        image: "food_picture/curry_potato.jpg",  // 🔍 확인: 이 파일이 있어야 함
-        steps_kr: ["1. 카레와 으깬 감자를 섞어 식힙니다.","2. 동그랗게 빚고 밀가루-계란-빵가루 순으로 입힙니다.","3. 바삭하게 튀깁니다."],
-        steps_en: ["1. Mix curry with mashed potato, chill.","2. Form into balls, coat with flour, egg, breadcrumbs.","3. Deep-fry until golden."],
+        name: "카레 고로케 (Curry Croquette)",
+        image: "food_picture/curry_potato.jpg",
+        topic: "남은 카레와 감자를 활용한 바삭한 일본식 간식",
+        ingredients_kr: "남은 카레, 으깬 감자, 밀가루, 계란, 빵가루, 튀김용 기름",
+        ingredients_en: "Leftover curry, Mashed potato, Flour, Egg, Breadcrumbs, Oil for frying",
+        steps_kr: [
+          "1. 카레와 으깬 감자를 섞어 식힙니다.",
+          "2. 동그랗게 빚고 밀가루-계란-빵가루 순으로 입힙니다.",
+          "3. 바삭하게 튀깁니다."
+        ],
+        steps_en: [
+          "1. Mix curry with mashed potato, chill.",
+          "2. Form into balls, coat with flour, egg, breadcrumbs.",
+          "3. Deep-fry until golden."
+        ],
         reference: "https://tiffycooks.com/curry-croquettes-crispy-and-cheesy/"
       },
       "밥": {
-        name: "카레 그라탱",
-        image: "food_picture/curry_rice.jpg",  // 🔍 확인
-        steps_kr: ["1. 익힌 밥 위에 카레를 붓습니다.","2. 치즈를 듬뿍 올립니다.","3. 오븐 또는 에어프라이어에 구워 마무리합니다."],
-        steps_en: ["1. Layer curry over cooked rice.","2. Top with shredded cheese.","3. Bake until golden and bubbly."],
+        name: "카레 그라탱 (Curry Gratin)",
+        image: "food_picture/curry_rice.jpg",
+        topic: "남은 카레로 만드는 고소한 오븐 요리",
+        ingredients_kr: "남은 카레, 익힌 파스타 또는 밥, 슈레드 치즈",
+        ingredients_en: "Leftover curry, Cooked pasta or rice, Shredded cheese",
+        steps_kr: [
+          "1. 익힌 파스타나 밥 위에 카레를 붓습니다.",
+          "2. 치즈를 넉넉히 올립니다.",
+          "3. 오븐 또는 에어프라이어에 구워 마무리합니다."
+        ],
+        steps_en: [
+          "1. Layer curry over cooked pasta or rice.",
+          "2. Top with shredded cheese.",
+          "3. Bake until golden and bubbly."
+        ],
         reference: "https://greatcurryrecipes.net/2016/03/03/cauliflower-gratin/"
       },
       "두부": {
-        name: "두부 카레",
-        image: "food_picture/curry_tofu.jpg",  // ✅ 정상 출력 중
-        steps_kr: ["1. 두부를 향신료와 함께 볶아 바삭하게 만든 뒤 꺼냅니다.","2. 같은 팬에 양파를 볶고 향신료를 더해 깊은 맛을 냅니다.","3. 채소와 나머지 재료를 넣고 끓인 후 두부와 완두콩을 넣어 마무리합니다."],
-        steps_en: ["1. Pan-fry tofu with spices until crispy.","2. Sauté onions and add spices.","3. Add veggies and tofu, cook together."],
+        name: "두부 카레 (Tofu Curry)",
+        image: "food_picture/curry_tofu.jpg",
+        topic: "남은 카레를 이용해 밥 대신 두부와 함께 맛있는 두부를 즐기자",
+        ingredients_kr: "두부, 생강, 토마토 페이스트, 카레, 다진 토마토, 그릭 요거트",
+        ingredients_en: "Tofu, Ginger, Tomato paste, Curry, Diced tomatoes, Greek yogurt",
+        steps_kr: [
+          "1. 두부를 향신료와 함께 볶아 겉이 바삭해질 때까지 조리한 후 접시에 옮깁니다.",
+          "2. 같은 팬에서 양파를 볶아 부드러워질 때까지 익힙니다.",
+          "3. 향신료를 넣고 향이 충분히 올라올 때까지 볶아 깊은 맛을 냅니다.",
+          "4. 채소와 나머지 재료를 넣고, 10분 정도 끓여 걸쭉하게 만듭니다.",
+          "5. 미리 볶아둔 두부와 완두콩을 넣어 섞습니다."
+        ],
+        steps_en: [
+          "1. Pan-fry tofu with spices until crispy, then set aside.",
+          "2. In the same pan, sauté onions until soft.",
+          "3. Add spices and cook until fragrant.",
+          "4. Add veggies and remaining ingredients; simmer for 10 minutes until thickened.",
+          "5. Stir in the tofu and green peas."
+        ],
         reference: "https://www.wellplated.com/tofu-curry/"
       },
       "닭고기": {
-        name: "치킨 미트볼 카레",
-        image: "food_picture/curry_chicken.jpg",  // 🔍 확인
-        steps_kr: ["1. 닭고기와 재료를 섞어 미트볼을 빚고 구워줍니다.","2. 팬에 향신료를 볶고 코코넛밀크 등으로 소스를 만듭니다.","3. 미트볼과 함께 끓여 밥 위에 올립니다."],
-        steps_en: ["1. Mix chicken and ingredients, form meatballs.","2. Cook spices and curry sauce.","3. Combine and serve over rice."],
+        name: "치킨 미트볼 카레 (Chicken Meatball Curry)",
+        image: "food_picture/curry_chicken.jpg",
+        topic: "흔한 토마토 스파게티의 미트볼 대신 카레와 미트볼",
+        ingredients_kr: "닭고기 미트볼, 재스민 라이스, 라임, 코코넛 크림 또는 밀크, 카레, 올리브 오일, 감칠맛 양념(선택)",
+        ingredients_en: "Cooked chicken meatballs, Jasmine rice, Lime, Coconut cream or milk, Curry, Olive oil, Umami seasoning (optional)",
+        steps_kr: [
+          "1. 닭고기, 참기름, 달걀, 빵가루, 마늘, 생강, 레몬그라스 페이스트, 홍고추, 고수, 소금, 후추를 섞어 반죽 후 20분 냉장 숙성합니다.",
+          "2. 팬에 기름을 두르고 미트볼을 넣어 6~8분간 모든 면이 고루 익을 때까지 굽습니다.",
+          "3. 같은 팬에 마늘, 생강, 닭 육수 큐브, 태국 카레 페이스트를 볶고, 코코넛 밀크, 피쉬 소스, 설탕, 바질, 라임즙을 넣어 5~6분간 졸입니다.",
+          "4. 밥 위에 미트볼과 카레 소스를 올리고, 바질, 고수, 라임 등을 곁들여 마무리합니다."
+        ],
+        steps_en: [
+          "1. Mix chicken with sesame oil, egg, breadcrumbs, garlic, ginger, lemongrass paste, chili, herbs, and seasonings. Chill for 20 minutes.",
+          "2. Pan-fry meatballs for 6–8 minutes until evenly cooked.",
+          "3. In the same pan, sauté garlic, ginger, broth cube, and Thai curry paste. Add coconut milk, fish sauce, sugar, Thai basil, lime juice, and simmer.",
+          "4. Serve meatballs and sauce over rice, garnished with basil, coriander, lime, and chili."
+        ],
         reference: "https://www.kitchensanctuary.com/chicken-meatball-curry/"
       }
     };
@@ -70,10 +131,16 @@
       const stepsEn = recipe.steps_en.map(step => `<li>${step}</li>`).join("");
 
       container.innerHTML = `
+        <p><strong>주제:</strong> ${recipe.topic}</p>
+        <p><strong>재료 (한글):</strong> ${recipe.ingredients_kr}</p>
+        <p><strong>Ingredients (English):</strong> ${recipe.ingredients_en}</p>
+
         <h2>레시피 설명 (한국어)</h2>
         <ul>${stepsKr}</ul>
+
         <h2>Recipe Instructions (English)</h2>
         <ul>${stepsEn}</ul>
+
         <p class="reference">
           🔗 Reference: <a href="${recipe.reference}" target="_blank">${recipe.reference}</a>
         </p>
