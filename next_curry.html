@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>레스토랑 메뉴 - 카레 요리</title>
+  <title>카레 레시피</title>
   <link href="style.css" rel="stylesheet" />
 </head>
 <body>
-  <header>카레 레시피 메뉴판</header>
+  <header>카레 레시피</header>
+
+  <h1 id="title">레시피 제목</h1>
 
   <div id="recipe-content" class="recipe-container"></div>
 
@@ -123,6 +125,7 @@
     const recipe = recipes[selected];
 
     if (recipe) {
+      document.getElementById("title").textContent = recipe.name;
       const container = document.getElementById("recipe-content");
       const stepsKr = recipe.steps_kr.map(step => `<li>${step}</li>`).join("");
       const stepsEn = recipe.steps_en.map(step => `<li>${step}</li>`).join("");
