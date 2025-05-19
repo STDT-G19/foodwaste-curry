@@ -1,95 +1,19 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>레스토랑 메뉴 - 카레 요리</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>레시피 결과</title>
   <link href="style.css" rel="stylesheet" />
-  <style>
-    body {
-      font-family: 'Pretendard', 'Arial', sans-serif;
-      background-color: #fff8f0;
-      margin: 0;
-      padding: 0;
-      color: #2c3e50;
-    }
-
-    header {
-      background-color: #d35400;
-      padding: 30px;
-      text-align: center;
-      color: white;
-      font-size: 2em;
-      letter-spacing: 1px;
-      font-weight: bold;
-    }
-
-    .recipe-container {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 20px;
-      background-color: #ffffff;
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    .recipe-img {
-      width: 100%;
-      max-width: 400px;
-      height: auto;
-      border-radius: 12px;
-      margin: 20px auto;
-      display: block;
-    }
-
-    .section-label {
-      font-size: 1.2em;
-      margin-top: 30px;
-      color: #e67e22;
-      border-bottom: 2px solid #f6c190;
-      display: inline-block;
-      padding-bottom: 5px;
-    }
-
-    ul {
-      padding-left: 20px;
-      line-height: 1.6;
-    }
-
-    .reference {
-      font-size: 0.9em;
-      font-style: italic;
-      color: #777;
-      margin-top: 20px;
-    }
-
-    .back-btn {
-      display: block;
-      margin: 40px auto 0;
-      padding: 12px 24px;
-      font-size: 1rem;
-      background-color: #d35400;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
-    footer {
-      margin-top: 50px;
-      text-align: center;
-      font-size: 0.9em;
-      color: #aaa;
-      padding-bottom: 20px;
-    }
-  </style>
 </head>
 <body>
-  <header>카레 레시피 메뉴판</header>
+  <h1 id="title">레시피 결과</h1>
+  <img id="recipe-img" class="recipe-img" src="" alt="요리 이미지" style="display: none;" />
 
-  <div id="recipe-content" class="recipe-container"></div>
+  <div id="recipe-container" class="recipe-text"></div>
 
   <button class="back-btn" onclick="window.history.back()">뒤로가기</button>
+
   <footer>한양대 인터칼리지학과 G19</footer>
 
   <script>
@@ -112,28 +36,114 @@
           "3. Garnish with green onions or boiled egg."
         ],
         reference: "https://www.wandercooks.com/curry-udon/"
+      },
+      "감자": {
+        name: "카레 고로케",
+        image: "food_picture/curry_potato.jpg",
+        topic_kr: "남은 카레와 감자를 활용한 바삭한 일본식 간식",
+        ingredients_kr: "남은 카레, 으깬 감자, 밀가루, 계란, 빵가루, 튀김용 기름",
+        steps_kr: [
+          "1. 카레와 으깬 감자를 섞어 식힙니다.",
+          "2. 동그랗게 빚고 밀가루-계란-빵가루 순으로 입힙니다.",
+          "3. 바삭하게 튀깁니다."
+        ],
+        topic_en: "A crispy Japanese-style snack using leftover curry and potatoes",
+        ingredients_en: "Leftover curry, Mashed potato, Flour, Egg, Breadcrumbs, Oil for frying",
+        steps_en: [
+          "1. Mix curry with mashed potato, chill.",
+          "2. Form into balls, coat with flour, egg, breadcrumbs.",
+          "3. Deep-fry until golden."
+        ],
+        reference: "https://tiffycooks.com/curry-croquettes-crispy-and-cheesy/"
+      },
+      "밥": {
+        name: "카레 그라탱",
+        image: "food_picture/curry_rice.jpg",
+        topic_kr: "남은 카레로 만드는 고소한 오븐 요리",
+        ingredients_kr: "남은 카레, 익힌 파스타 또는 밥, 슈레드 치즈",
+        steps_kr: [
+          "1. 익힌 파스타나 밥 위에 카레를 붓습니다.",
+          "2. 치즈를 넉넉히 올립니다.",
+          "3. 오븐 또는 에어프라이어에 구워 마무리합니다."
+        ],
+        topic_en: "A rich oven-baked dish using leftover curry",
+        ingredients_en: "Leftover curry, Cooked pasta or rice, Shredded cheese",
+        steps_en: [
+          "1. Layer curry over cooked pasta or rice.",
+          "2. Top with shredded cheese.",
+          "3. Bake until golden and bubbly."
+        ],
+        reference: "https://greatcurryrecipes.net/2016/03/03/cauliflower-gratin/"
+      },
+      "두부": {
+        name: "두부 카레",
+        image: "food_picture/curry_tofu.jpg",
+        topic_kr: "남은 카레를 이용해 밥 대신 두부와 함께 맛있는 두부를 즐기자",
+        ingredients_kr: "두부, 생강, 토마토 페이스트, 카레, 다진 토마토, 그릭 요거트",
+        steps_kr: [
+          "1. 두부를 향신료와 함께 볶아 겉이 바삭해질 때까지 조리한 후 접시에 옮깁니다.",
+          "2. 같은 팬에서 양파를 볶아 부드러워  질 때까지 익힙니다.",
+          "3. 향신료를 넣고 향이 충분히 올라올 때까지 볶아 깊은 맛을 냅니다.",
+          "4. 채소와 나머지 재료를 넣고, 10분 정도 끓여 걸쭉하게 만듭니다.",
+          "5. 미리 볶아둔 두부와 완두콩을 넣어 섞습니다."
+        ],
+        topic_en: "Enjoy curry deliciously with tofu instead of rice using leftovers",
+        ingredients_en: "Tofu, Ginger, Tomato paste, Curry, Diced tomatoes, Greek yogurt",
+        steps_en: [
+          "1. Pan-fry tofu with spices until crispy, then set aside.",
+          "2. In the same pan, sauté onions until soft.",
+          "3. Add spices and cook until fragrant.",
+          "4. Add veggies and remaining ingredients; simmer for 10 minutes until thickened.",
+          "5. Stir in the tofu and green peas."
+        ],
+        reference: "https://www.wellplated.com/tofu-curry/"
+      },
+      "닭고기": {
+        name: "치킨 미트볼 카레",
+        image: "food_picture/curry_chicken.jpg",
+        topic_kr: "흔한 토마토 스파게티의 미트볼 대신 카레와 미트볼",
+        ingredients_kr: "닭고기 미트볼, 재스민 라이스, 라임, 코코넛 크림 또는 밀크, 카레, 올리브 오일, 감칠맛 양념(선택)",
+        steps_kr: [
+          "1. 닭고기, 참기름, 달걀, 빵가루, 마늘, 생강, 레몬그라스 페이스트, 홍고추, 고수, 소금, 후추를 섞어 반죽 후 20분 냉장 숙성합니다.",
+          "2. 팬에 기름을 두르고 미트볼을 넣어 6~8분간 모든 면이 고루 익을 때까지 굽습니다.",
+          "3. 같은 팬에 마늘, 생강, 닭 육수 큐브, 태국 카레 페이스트를 볶고, 코코넛 밀크, 피쉬 소스, 설탕, 바질, 라임즙을 넣어 5~6분간 졸입니다.",
+          "4. 밥 위에 미트볼과 카레 소스를 올리고, 바질, 고수, 라임 등을 곁들여 마무리합니다."
+        ],
+        topic_en: "Swap classic tomato meatballs with curry for a flavorful twist",
+        ingredients_en: "Cooked chicken meatballs, Jasmine rice, Lime, Coconut cream or milk, Curry, Olive oil, Umami seasoning (optional)",
+        steps_en: [
+          "1. Mix chicken with sesame oil, egg, breadcrumbs, garlic, ginger, lemongrass paste, chili, herbs, and seasonings. Chill for 20 minutes.",
+          "2. Pan-fry meatballs for 6–8 minutes until evenly cooked.",
+          "3. In the same pan, sauté garlic, ginger, broth cube, and Thai curry paste. Add coconut milk, fish sauce, sugar, Thai basil, lime juice, and simmer.",
+          "4. Serve meatballs and sauce over rice, garnished with basil, coriander, lime, and chili."
+        ],
+        reference: "https://www.kitchensanctuary.com/chicken-meatball-curry/"
       }
-      // 나머지 재료도 여기에 동일한 형식으로 추가 가능
     };
 
     const selected = localStorage.getItem("selectedIngredient");
     const recipe = recipes[selected];
 
     if (recipe) {
-      const container = document.getElementById("recipe-content");
+      document.getElementById("title").textContent = recipe.name;
+      const img = document.getElementById("recipe-img");
+      img.src = recipe.image;
+      img.style.display = "block";
+      img.alt = recipe.name;
+
+      const container = document.getElementById("recipe-container");
+
       const stepsKr = recipe.steps_kr.map(step => `<li>${step}</li>`).join("");
       const stepsEn = recipe.steps_en.map(step => `<li>${step}</li>`).join("");
 
       container.innerHTML = `
-        <img src="${recipe.image}" alt="${recipe.name}" class="recipe-img">
-
-        <div class="section-label">(한국어)</div>
+        <h2>(한국어)</h2>
         <p><strong>주제:</strong> ${recipe.topic_kr}</p>
         <p><strong>재료:</strong> ${recipe.ingredients_kr}</p>
         <h3>레시피 설명</h3>
         <ul>${stepsKr}</ul>
 
-        <div class="section-label">(English)</div>
+        <h2>(English)</h2>
         <p><strong>Topic:</strong> ${recipe.topic_en}</p>
         <p><strong>Ingredients:</strong> ${recipe.ingredients_en}</p>
         <h3>Recipe Instructions</h3>
@@ -144,7 +154,7 @@
         </p>
       `;
     } else {
-      document.getElementById("recipe-content").innerHTML = "<p>선택된 재료가 없습니다.</p>";
+      document.getElementById("recipe-container").innerHTML = "<p>선택된 재료가 없습니다.</p>";
     }
   </script>
 </body>
